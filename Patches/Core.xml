@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- === General === -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThingDef/plant/harvestedThingDef[text()="WoodLog"]</xpath>
+    <value>
+      <harvestedThingDef>RawLog</harvestedThingDef>
+    </value>
+  </Operation>
+  
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThingDef/comps/li[@Class="CompProperties_Refuelable"]/fuelFilter/thingDefs/li[.="WoodLog"]</xpath>
+    <value>
+      <li>RawLog</li>
+    </value>
+  </Operation>
+
+  <!-- === Weapons === -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>
+      /Defs/ThingDef[
+        defName = "MeleeWeapon_Club" or
+        defName = "MeleeWeapon_Ikwa" or
+        defName = "MeleeWeapon_Spear" or
+        defName = "MeleeWeapon_Mace" or
+        defName = "Apparel_WarMask"
+      ]/stuffCategories/li[.="Woody"]
+    </xpath>
+    <value>
+      <li>RawWoody</li>
+    </value>
+  </Operation>
+
+  <!-- === Buildings === -->
+
+  <!-- == Campfire / Torch == -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThingDef[defName="TorchLamp" or defName="Campfire"]/costList/WoodLog</xpath>
+    <value>
+      <RawLog>20</RawLog>
+    </value>
+  </Operation>
+
+  <!-- == Horshoe Ping / Hoopstone Ring == -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThingDef[defName="HorseshoesPin" or defName="HoopstoneRing"]/stuffCategories/li[.="Woody"]</xpath>
+    <value>
+      <li>RawWoody</li>
+    </value>
+  </Operation>
+
+  <!-- == Passive Cooler == -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>/Defs/ThingDef[defName="PassiveCooler"]/costList/WoodLog</xpath>
+    <value>
+      <RawLog>50</RawLog>
+    </value>
+  </Operation>
+
+  <!-- == Brewery == -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>[SYR] Universal Fermenter</li>
+    </mods>
+    <nomatch Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/ThingDef[defName="Brewery"]/costList/WoodLog</xpath>
+          <match Class="PatchOperationRemove">
+            <xpath>/Defs/ThingDef[defName="Brewery"]/costList/WoodLog</xpath>
+          </match>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/ThingDef[defName="Brewery"]/constructEffect</xpath>
+          <match Class="PatchOperationRemove">
+            <xpath>/Defs/ThingDef[defName="Brewery"]/constructEffect</xpath>
+          </match>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/ThingDef[defName="Brewery"]/costStuffCount</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Brewery"]</xpath>
+            <value>
+              <costStuffCount>120</costStuffCount>
+            </value>
+          </nomatch>
+          <match Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[defName="Brewery"]/costStuffCount</xpath>
+            <value>
+              <costStuffCount>120</costStuffCount>
+            </value>
+          </match>
+        </li>
+        <li Class="PatchOperationConditional">
+          <xpath>/Defs/ThingDef[defName="Brewery"]/stuffCategories</xpath>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="Brewery"]</xpath>
+            <value>
+              <stuffCategories>
+                <li>Woody</li>
+              </stuffCategories>
+            </value>
+          </nomatch>
+          <match Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[defName="Brewery"]/stuffCategories</xpath>
+            <value>
+              <stuffCategories>
+                <li>Woody</li>
+              </stuffCategories>
+            </value>
+          </match>
+        </li>
+      </operations>
+    </nomatch>
+  </Operation>
+
+  <!-- == Fermeting Barrel == -->
+  <Operation Class="PatchOperationRemove">
+    <xpath>
+      /Defs/ThingDef[defName="FermentingBarrel"]/costList/WoodLog |
+      /Defs/ThingDef[defName="FermentingBarrel"]/constructEffect
+    </xpath>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="FermentingBarrel"]/costStuffCount</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="FermentingBarrel"]</xpath>
+      <value>
+        <costStuffCount>30</costStuffCount>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>/Defs/ThingDef[defName="FermentingBarrel"]/costStuffCount</xpath>
+      <value>
+        <costStuffCount>30</costStuffCount>
+      </value>
+    </match>
+  </Operation>
+
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/ThingDef[defName="FermentingBarrel"]/stuffCategories</xpath>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/ThingDef[defName="FermentingBarrel"]</xpath>
+      <value>
+        <stuffCategories>
+          <li>Woody</li>
+        </stuffCategories>
+      </value>
+    </nomatch>
+    <match Class="PatchOperationReplace">
+      <xpath>/Defs/ThingDef[defName="FermentingBarrel"]/stuffCategories</xpath>
+      <value>
+        <stuffCategories>
+          <li>Woody</li>
+        </stuffCategories>
+      </value>
+    </match>
+  </Operation>
+
+</Patch>

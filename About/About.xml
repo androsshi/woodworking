@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <packageId>andross.woodworking</packageId>
+	<name>Woodworking</name>
+	<author>Andross</author>
+	<url>https://github.com/onigamii/Woodworking</url>
+	<supportedVersions>
+    <li>1.2</li>
+	</supportedVersions>
+	<description>Version: 1.2.1.0\n\nProcess logs into planks for construction and general crafting.</description>
+</ModMetaData>

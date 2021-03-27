@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <!--
+  <DesignatorDropdownGroupDef>
+    <defName>Floor_WoodPlanks</defName>
+    <label>wood floors</label>
+  </DesignatorDropdownGroupDef>-->
+
+  <TerrainDef Name="WoodPlankFloorBase" ParentName="FloorBase">
+    <defName>WoodPlankFloor</defName>
+    <label>wood floor</label>
+    <renderPrecedence>250</renderPrecedence>
+    <description>Wood plank flooring for that warm, homey feeling. While it is quick to lay, it is also very flammable.</description>
+    <!--<designatorDropdown>Floor_WoodPlanks</designatorDropdown>-->
+    <texturePath>Terrain/Surfaces/WoodFloor</texturePath>
+    <burnedDef>BurnedWoodPlankFloor</burnedDef>
+    <color>(115, 74, 50)</color>
+    <!-- <color>(108,78,55)</color> -->
+    <statBases>
+      <WorkToBuild>85</WorkToBuild>
+      <Flammability>0.22</Flammability>
+    </statBases>
+    <costList>
+      <WoodLog>3</WoodLog>
+    </costList>
+    <constructEffect>ConstructWood</constructEffect>
+    <designationHotKey>Misc9</designationHotKey>
+  </TerrainDef>
+
+  <TerrainDef ParentName="WoodPlankFloorBase">
+    <defName>WW_TreatedWoodPlankFloor</defName>
+    <label>treated wood floor</label>
+    <color>(64, 42, 34)</color>
+    <!-- <color>(68, 38, 13)</color> -->
+    <statBases>
+      <WorkToBuild>200</WorkToBuild>
+      <Beauty>5</Beauty>
+    </statBases>
+    <costList Inherit="False">
+      <WW_TreatedPlanks>10</WW_TreatedPlanks>
+    </costList>
+  </TerrainDef>
+  
+  <TerrainDef ParentName="WoodPlankFloorBase">
+    <defName>WW_SealedPlankFloor</defName>
+    <label>sealed wood floor</label>
+    <description>Sealed wood plank flooring. Quick to lay and flame resistant.</description>
+    <color>(217, 187, 147)</color>
+    <!-- <color>(233, 207, 175)</color> -->
+    <statBases>
+      <WorkToBuild>100</WorkToBuild>
+      <Flammability>0</Flammability>
+    </statBases>
+    <costList Inherit="False">
+      <WW_SealedPlanks>5</WW_SealedPlanks>
+    </costList>
+  </TerrainDef>
+
+</Defs>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- === Planks === -->
+  <RecipeDef>
+    <defName>Make_WoodPlanks</defName>
+    <label>make wood planks</label>
+    <description>Process wood logs into planks for construction.</description>
+    <jobString>Making wood planks from wood logs.</jobString>
+    <effectWorking>CutStone</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>400</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <workSkillLearnFactor>0.25</workSkillLearnFactor>
+    <targetCountAdjustment>20</targetCountAdjustment>
+    <allowMixingIngredients>false</allowMixingIngredients>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RawLog</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>RawLog</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <WoodLog>30</WoodLog>
+    </products>
+    <recipeUsers>
+      <li>WW_TableWoodworking</li>
+      <li>CraftingSpot</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <!-- === Treated Planks === -->
+  <RecipeDef>
+    <defName>Make_TreatedPlanks</defName>
+    <label>make treated wood planks</label>
+    <description>Process wood logs into treated planks for construction.</description>
+    <jobString>Making treated wood planks from wood logs.</jobString>
+    <effectWorking>CutStone</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>700</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <workSkillLearnFactor>0.25</workSkillLearnFactor>
+    <targetCountAdjustment>20</targetCountAdjustment>
+    <allowMixingIngredients>false</allowMixingIngredients>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RawLog</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>RawLog</li>
+        <li>Chemfuel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <WW_TreatedPlanks>30</WW_TreatedPlanks>
+    </products>
+    <recipeUsers>
+      <li>WW_TableWoodworking</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <!-- === Sealed Planks === -->
+  <RecipeDef>
+    <defName>Make_SealedPlanks</defName>
+    <label>make sealed wood planks</label>
+    <description>Process wood logs into sealed planks for construction.</description>
+    <jobString>Making sealed wood planks from wood logs.</jobString>
+    <effectWorking>CutStone</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>1400</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <workSkill>Crafting</workSkill>
+    <workSkillLearnFactor>0.25</workSkillLearnFactor>
+    <targetCountAdjustment>20</targetCountAdjustment>
+    <allowMixingIngredients>false</allowMixingIngredients>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>RawLog</li>
+          </thingDefs>
+        </filter>
+        <count>10</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </filter>
+        <count>15</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>RawLog</li>
+        <li>Chemfuel</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <WW_SealedPlanks>30</WW_SealedPlanks>
+    </products>
+    <recipeUsers>
+      <li>WW_TableWoodworking</li>
+    </recipeUsers>
+  </RecipeDef>
+
+</Defs>
